@@ -11,7 +11,6 @@ let yesterday = moment().subtract(1, 'days'),
 
 export default class Reports extends React.Component {
     state = {
-        isLoading: true,
         startValue: weekBefore,
         endValue: yesterday,
         endOpen: false,
@@ -59,7 +58,7 @@ export default class Reports extends React.Component {
         }
         return startValue.valueOf() > endValue.valueOf();
     }
-    
+
     disabledEndDate = (endValue) => {
         const startValue = this.state.startValue;
         if (!endValue || !startValue) {

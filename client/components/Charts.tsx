@@ -11,8 +11,6 @@ class Charts extends React.Component<any, any> {
     constructor(props:any) {
         super(props);
         this.state = {
-            showOptins: true,
-            showRecipients: true,
             optins: this.props.optins,
             recipients: this.props.recips
         }
@@ -20,12 +18,9 @@ class Charts extends React.Component<any, any> {
 
     createChart = (...theArgs) => {
         let chart = am4core.create("chartdiv", am4charts.XYChart);
-        // chart.svgContainer.htmlElement.style.height = "500px";
-        // chart.minHeight = "500px"
 
         let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
         dateAxis.title.text = "Date";
-        dateAxis.cursorTooltipEnabled = false;
 
         let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis.title.text = "Count";
