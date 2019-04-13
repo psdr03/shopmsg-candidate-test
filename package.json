@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "test": "cd public && ../node_modules/webpack/bin/webpack.js --progress --colors --watch",
-    "build": "webpack --progress",
+    "build": "webpack",
     "postinstall": "npm run build",
     "start": "node app.js"
   },

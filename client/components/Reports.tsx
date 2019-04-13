@@ -118,8 +118,8 @@ export default class Reports extends React.Component {
                     flex: "1",
                     alignSelf: "center"
                 }}>
-                    <span>Optins: </span><Switch defaultChecked onClick={this.onSwitchOptins} style={{ margin: '0 16px' }} />
-                    <span>Recipients: </span><Switch defaultChecked onClick={this.onSwitchRecipients} style={{ margin: '0 16px' }}  />
+                    <span>Optins: </span> <Switch defaultChecked onChange={this.onSwitchOptins} /><span style={{marginRight: "15px"}}></span>
+                    <span>Recipients: </span><Switch defaultChecked onChange={this.onSwitchRecipients}/>
                 </div>
                 <div style= {{
                     flex: "1",

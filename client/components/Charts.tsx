@@ -20,6 +20,8 @@ class Charts extends React.Component<any, any> {
 
     createChart = (...theArgs) => {
         let chart = am4core.create("chartdiv", am4charts.XYChart);
+        // chart.svgContainer.htmlElement.style.height = "500px";
+        // chart.minHeight = "500px"
 
         let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
         dateAxis.title.text = "Date";
@@ -45,7 +47,7 @@ class Charts extends React.Component<any, any> {
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.lineX.disabled = true;
         chart.cursor.lineY.disabled = true;
-        chart.svgContainer.htmlElement.style.height = 500 + "px";
+
         chart.legend = new am4charts.Legend();
     }
 
@@ -67,7 +69,7 @@ class Charts extends React.Component<any, any> {
 
     public render() {
         return (
-            <div id="chartdiv"></div>
+            <div id="chartdiv" style={{height: "500px"}}></div>
         )
     }
 }
