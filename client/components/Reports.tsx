@@ -24,7 +24,7 @@ export default class Reports extends React.Component {
     getData = (start, end) => {
         axios.all([
             axios.get(`https://shopmsg-chart-demo.herokuapp.com/api/reports/optins.json?from=${start.format('YYYY-MM-DD')}&to=${end.format('YYYY-MM-DD')}`),
-            axios.get(`https://shopmsg-chart-demo.herokuapp.com/api/reports/recipients.json?from=${start}&to=${end}`),
+            axios.get(`https://shopmsg-chart-demo.herokuapp.com/api/reports/recipients.json?from=${start.format('YYYY-MM-DD')}&to=${end.format('YYYY-MM-DD')}`),
         ])
         .then(axios.spread((optins, recips) => {
             let optinsRes = optins.data,

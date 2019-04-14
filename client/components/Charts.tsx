@@ -42,7 +42,6 @@ class Charts extends React.Component<any, any> {
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.lineX.disabled = true;
         chart.cursor.lineY.disabled = true;
-
         chart.legend = new am4charts.Legend();
     }
 
