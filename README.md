@@ -1,94 +1,21 @@
 ShopMessage Assignment for React Developer
 ==========================================
-Finish the implementation of this reports dashboard by building a chart that users can manipulate by selecting dates and fields to render. The resulting implementation should look something like the interface below and has the following features:
 
-- User can select a start and end date for which to show data.
-- The "Optins" and "Recipeints" datasets are shown in the same chart. The X-axis represents calendar days.
-- User can hide or reveal the "Optins" dataset from the chart.
-- User can hide or reveal the "Recipients" dataset from the chart.
-
-![screenshot](./public/screenshot.png)
-
-Instructions
+NPM Packages used
 ------------
-Clone this repository as a starting point
-```
-$> git clone https://github.com/fanrock/shopmsg-chart-demo.git --depth 1
-```
+- Amcharts4
+- MomentJS
+- Axios
 
-Install the dependencies onto your local development environment.
-
-```
-$> npm install
-```
-
-If you are using [VisualStudio Code](https://code.visualstudio.com/), I have included a `.vscode/launch.json` file for you to begin debugging. Otherwise start the development server with `npm`.
-```
-$> npm start
-```
-
-You should be able to implement your solution using strict browser-only code in Typescript and/or Javascript. Write the code that you need in the `/client` directory.
-
-Resources
+Demo
 ---------
-To retrieve the dataset for optins, the server code exposes two JSON endpoints:
+[invoke this](http://shopmsg-candidate-test.herokuapp.com)
 
-- `/api/reports/optins.json?from={YYYY-MM-DD}&to={YYYY-MM-DD}`
-- `/api/reports/recipients.json?from={YYYY-MM-DD}&to={YYYY-MM-DD}`
-
-For example, you can [invoke this](https://shopmsg-chart-demo.herokuapp.com/api/reports/optins.json?from=2018-10-01&to=2018-11-01) on the live production server right now. The result is a JSON array:
-```
-[
-  {
-    "date": "10/01",
-    "count": 482
-  },
-  {
-    "date": "10/02",
-    "count": 517
-  },
-  {
-    "date": "10/03",
-    "count": 504
-  },
-  {
-    "date": "10/04",
-    "count": 513
-  },
-  {
-    "date": "10/05",
-    "count": 476
-  },
-  {
-    "date": "10/06",
-    "count": 485
-  },
-  {
-    "date": "10/07",
-    "count": 514
-  },
-  {
-    "date": "10/08",
-    "count": 517
-  },
-  {
-    "date": "10/09",
-    "count": 511
-  },
-  {
-    "date": "10/10",
-    "count": 488
-  },
-  ...
-]
-```
-
-You may choose to use any package available in the NPM repository. Though we are already using [Ant Design](https://ant.design/) and you are encouraged to keep your UI looking consistent with the existing code.
-
-Deliverables
+Issues
 ------------
-**Code** - Upload your code to your own personal github account and send us a link to your completed implementation when finished.
+**CORS** - Kept getting a CORS policy error when trying to get data from the API. Both on the development machine and production in Heroku. Tried searching for a fix on front-end but most recommend fixing it through the API server. 
 
-**Deployment** - _optional_ If you have an account, upload your build to [Heroku](https://www.heroku.com/) or similar cloud hosting provider and send us a link. There is a [free tier](https://www.heroku.com/pricing#heroku-dyno-free) available so you should not have to pay. Make sure to set your `NODE_ENV=production` environment variable in the production environment. 
+Workaround - Used this plugin in chrome [invoke this](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en). Works on local machine and heroku.
 
-**Screencast** - Our team really values communication! Please make a screencast where you show us the functionality you implemented. This can be quick (no more than 5 minutes) and casual. If you don't have a tool you currently use to make screencasts, we recommend you use [Loom](https://www.useloom.com/) to make the screencast. It's free and easy to use.
+**Deployment** - Not sure if it's on my build only, but when creating the build for deployment, the main file vendor.chunk in v1.0 folder (production) gets a prefix of '0'. But the index.html file in templates is requesting for 1_vendor.chunk so I was getting a 404. Adjusted the index.html in templates to '0' for it to work.
+

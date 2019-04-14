@@ -16,10 +16,9 @@ export default class Reports extends React.Component {
         endOpen: false,
         optinsRes: [],
         recipsRes: [], 
-        oldStart: weekBefore,
-        oldEnd: yesterday,
         showOptins: true,
-        showRecipients: true
+        showRecipients: true,
+        shouldUpdate: false
     };
 
     getData = (start, end) => {
@@ -33,21 +32,19 @@ export default class Reports extends React.Component {
             this.setState({
                 optinsRes,
                 recipsRes,
-                oldStart: start,
-                oldEnd: end,
+                shouldUpdate: false
             })
         }))
     }
-
-
 
     componentDidMount = () => {
         this.getData(weekBefore, yesterday)
     }
 
     componentDidUpdate = () => {
-        if (this.state.startValue !== this.state.oldStart || this.state.endValue !== this.state.oldEnd) {
+        if (this.state.shouldUpdate) {
             this.getData(this.state.startValue, this.state.endValue)
+            this.setState({shouldUpdate: false})
         }
     }
 
@@ -70,6 +67,7 @@ export default class Reports extends React.Component {
     onChange = (field, value) => {
         this.setState({
           [field]: value,
+          shouldUpdate: true
         });
     }
     
