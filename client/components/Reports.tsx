@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { DatePicker, Switch } from 'antd';
+import { DatePicker, Switch} from 'antd';
 import axios from 'axios';
 import moment from 'moment';
 import Charts from './Charts'
-
 
 // set default values for calendar
 let yesterday = moment().subtract(1, 'days'),
@@ -18,7 +17,7 @@ export default class Reports extends React.Component {
         recipsRes: [], 
         showOptins: true,
         showRecipients: true,
-        shouldUpdate: false
+        shouldUpdate: false,
     };
 
     getData = (start, end) => {
@@ -145,14 +144,15 @@ export default class Reports extends React.Component {
                         }}
                     />
                 </div>
-            </div>
-                <Charts 
-                    optins={this.state.optinsRes}
-                    recips={this.state.recipsRes}
-                    showOptins={this.state.showOptins}
-                    showRecipients={this.state.showRecipients}
+                </div>
+                    <Charts 
+                        optins={this.state.optinsRes}
+                        recips={this.state.recipsRes}
+                        showOptins={this.state.showOptins}
+                        showRecipients={this.state.showRecipients}
                 />
             </>
+        
         )
     }
 }

@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Reports from './Reports';
 import { Layout, Menu, Breadcrumb, Icon, Card } from 'antd';
+import {  } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
